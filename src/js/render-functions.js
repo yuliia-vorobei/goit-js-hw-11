@@ -1,6 +1,5 @@
 export function getGallery(images) {
-  console.log(images);
-  return images['hits']
+  return images.hits
     .map(
       ({
         webformatURL,

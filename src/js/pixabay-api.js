@@ -36,41 +36,12 @@ export function getImages(query) {
           color: 'red',
           position: 'topRight',
         });
+        throw new Error('No images found');
       }
+      return data;
     })
     .finally(() => hideLoader());
 }
-
-//   return fetch(url)
-//     .then(res => {
-//       showLoader();
-//       if (!res.ok) {
-//         throw new Error(res.status); // Throw error if response is not ok
-//       }
-//       return res.json(); // Parse JSON response
-//     })
-//     .then(data => {
-//       // Check if no images were found
-//       if (data.total === 0 && data.totalHits === 0) {
-//         // Display message using iziToast or any other notification library
-//         iziToast.show({
-//           message:
-//             'Sorry, there are no images matching your search query. Please try again!',
-//           messageColor: 'black',
-//           color: 'red',
-//           position: 'topRight',
-//         });
-//       } else {
-//         // Process and use the images from data.hits
-//         return data.hits;
-//       }
-//     })
-//     .catch(error => {
-//       console.error('Error fetching images:', error);
-//       // Handle error, e.g., show an error message to the user
-//     })
-//     .finally(() => hideLoader()); // Hide loader after fetching data
-// }
 
 function showLoader() {
   loader.style.visibility = 'visible';
